@@ -1,11 +1,13 @@
 @import "mixins.scss";
 
-$fuente: "Poppins", sans-serif;
-$fuenteTitulo: "Playfair Display", serif;
+$fuente: "Quattrocento", serif;
+$fuenteTitulo: "Oswald", sans-serif;
 
-$negro: #424241;
-$blanco: #ffffff;
-$gris: #9e9d9b;
+$negro: #303030;
+$blanco: #f6f6f6;
+$gris: #909090;
+$beige: #cac6bb;
+$grisClaro: #efefee;
 
 * {
   box-sizing: border-box;
@@ -23,195 +25,154 @@ $gris: #9e9d9b;
 body {
   font-family: $fuente;
   font-size: 16px;
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: -1;
+  background-image: url("../img/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $grisClaro;
 }
 
 header {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   padding: 30px 0;
 
   nav {
-    margin-left: 230px;
-    ul {
+    .menu {
       display: flex;
-      gap: 50px;
+      gap: 30px;
 
-      li {
-        a {
-          color: $gris;
-          font-size: 18px;
+      &__item {
+        color: $negro;
 
-          &:hover {
-            color: $negro;
-          }
+        &:hover::after {
+          content: "";
+          display: block;
+          width: 70%;
+          height: 2px;
+          margin-top: 10px;
+          background-color: $beige;
         }
       }
     }
   }
+  .logo {
+    position: absolute;
+    right: 50%;
+  }
+  .social {
+    display: flex;
+    gap: 20px;
+  }
 }
 
+h1 {
+  font-family: $fuenteTitulo;
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100px;
+  text-align: center;
+  margin: 40px 0;
+  color: $negro;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 5%;
+    height: 3px;
+    background-color: $beige;
+    margin-top: 10px;
+    margin-left: 30%;
+  }
+}
 .hero {
-  margin-top: 60px;
-  position: relative;
-  h1 {
-    font-family: $fuenteTitulo;
-    font-weight: 400;
-    font-size: 70px;
-    color: $negro;
-    position: relative;
-    z-index: 1;
-    width: 50%;
-
-    &::after {
-      content: "";
-      display: block;
-      background-image: url("../img/rectangle6.svg");
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      width: 480px;
-      height: 80px;
-      position: absolute;
-      top: 0;
-      left: -120px;
-      z-index: -1;
-    }
-  }
-
-  h2 {
-    color: $gris;
-    font-size: 20px;
-    font-weight: 400;
-    margin: 30px 0;
-    width: 50%;
-  }
-
-  .buttons {
-    display: flex;
-    gap: 40px;
-
-    .btn1 {
-      background-color: $negro;
-      color: $blanco;
-      padding: 10px 10px 10px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn2 {
-      background-color: $blanco;
-      color: $negro;
-      padding: 10px 10px 10px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-  }
+  display: flex;
+  justify-content: space-between;
+  background-image: url("../img/image.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left 45% bottom 100%;
+  background-size: 45%;
+  padding-top: 70px;
 
   .services {
-    position: absolute;
-    top: -120px;
-    z-index: -1;
-    right: -90px;
+    width: 33%;
 
-    &__images {
-      display: flex;
-      gap: 50px;
-      margin-top: 100px;
+    h2 {
+      font-family: $fuenteTitulo;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100px;
     }
 
-    &__text{
+    &__item {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      background-color: $blanco;
-      width: 30%;
-      position: absolute;
-      bottom: -200px;
-      right: 20px;
-      padding: 20px;
-      font-size: 14px;
+      gap: 20px;
+      margin-top: 30px;
+      width: 50%;
 
-      h3{
-        font-weight: 400;
-        font-size: 14px;
-      }
-
-      article{
+      div {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid rgb(207, 207, 207);
-        padding-bottom: 10px;
+        gap: 15px;
 
-        span{
-          color: $gris;
-        }
-
-        h4{
-          color: $negro;
-          font-weight: 400;
-          font-size: 16px;
-          position: relative;
+        img {
+          box-shadow: 0px 24px 50px 0px rgba(13, 12, 56, 0.1);
         }
       }
-
-      article:last-child{
-        border-bottom: none;
-        padding-bottom: 0;
+      p {
+        color: $gris;
+        font-size: 18px;
       }
     }
   }
-}
 
-.testimonials {
-  display: flex;
-  gap: 50px;
-  margin-top: 300px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    width: 8%;
-
-    span {
-      font-size: 64px;
+  .about {
+    width: 28%;
+    h2 {
+      font-family: $fuenteTitulo;
+      font-size: 32px;
       font-style: normal;
       font-weight: 500;
-      line-height: 96px;
-      color: $negro;
+      line-height: 100px;
     }
-
     p {
       color: $gris;
       font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: 32px;
+      margin: 20px 0;
     }
-  }
+    .btn {
+      background-color: $negro;
+      color: $blanco;
+      padding: 10px 30px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 40px;
+    }
+    .numbers{
+      display: flex;
+      margin-top: 60px;
+      gap: 30px;
 
-  div:nth-child(4) {
-    position: relative;
+      &__item{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h3{
+          font-family: $fuenteTitulo;
+          font-size: 32px;
+        }
+        p{
+          margin: 0;
+        }
+      }
 
-    &::after {
-      content: "";
-      display: block;
-      background-image: url("../img/rectangle6.svg");
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      width: 800px;
-      height: 200px;
-      position: absolute;
-      top: 75px;
-      left: -95px;
     }
   }
 }
